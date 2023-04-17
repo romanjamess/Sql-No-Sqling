@@ -1,0 +1,25 @@
+{
+  "name": "sql-no-sqling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romanjamess/Sql-No-Sqling.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romanjamess/Sql-No-Sqling/issues"
+  },
+  "homepage": "https://github.com/romanjamess/Sql-No-Sqling#readme"
+}
