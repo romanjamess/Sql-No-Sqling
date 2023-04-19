@@ -1,8 +1,7 @@
 const express = require("express"); //requiring express and pointing to db route
 const db = require("./config/connection");
 const routes = require ("./routes");
-//returns the value of directory where we run the node process
-// const cwd = process.cwd();
+
 //port
 const PORT = process.env.PORT || 3001;
 //initializing express

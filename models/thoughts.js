@@ -12,7 +12,7 @@ const reactionSchema = new Schema(
             minlength: 1,
             maxlength: 280,
         },
-        userName: {
+        username: {
             type: String,
             required: true,
         },
@@ -20,6 +20,12 @@ const reactionSchema = new Schema(
             type: Date,
             default: Date.now
         }
+    },
+    {
+        toJSON: {
+            getters: true
+        },
+        id: false,
     }
 );
 
@@ -31,7 +37,7 @@ const thoughtSchema = new Schema(
             minlength: 1,
             maxlength: 280
         },
-        userName: {
+        username: {
             type: String,
             required: true
         },
@@ -53,6 +59,6 @@ thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
 
-const Thought = mongoose.model('Thoughts', thoughtSchema);
+const thought = model('thoughts', thoughtSchema);
 
-module.exports = Thought;
+module.exports = thought;
