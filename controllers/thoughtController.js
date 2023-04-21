@@ -49,7 +49,7 @@ const thoughtController = {
 
     async deleteThought(req, res) {
         try {
-            const dbThoughts = await thought.findOneAndDelete({ _id: req.params.thoughtId });
+            const dbThoughts = await thought.findOneAndRemove({ _id: req.params.thoughtId });
         if (!dbThoughts) {
             return res.status(400).json({ message: "no user found with that ID"})
         }

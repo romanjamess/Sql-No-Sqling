@@ -11,7 +11,7 @@ const {
   
   // /api/thought/:thoughtid
   router.route('/:thoughtId').get(getSingleThought);
-  router.route("/:thoughtid").get(getSingleThought).delete(deleteThought);
+  router.route("/:thoughtId").get(getSingleThought).delete(deleteThought);
 
 
 module.exports = router;
