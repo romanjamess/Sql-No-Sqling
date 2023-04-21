@@ -19,8 +19,8 @@
         const dbThoughts = await thought.create(req.body); 
         console.log(req.body)
         const userInfo = await user.findOneAndUpdate(
-            {_id: body.userId},
-            { $push: { thoughts: _id } },
+            {_id: req.body.userId},
+            { $push: { thoughts: dbThoughts._id } },
             { new: true }
         );
 
