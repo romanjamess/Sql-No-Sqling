@@ -5,7 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.18.2",
-    "mongoose": "^6.9.2"
+    "mongoose": "^6.9.2",
+    "nodemon": "^2.0.22"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
