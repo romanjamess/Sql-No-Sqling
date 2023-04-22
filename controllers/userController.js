@@ -5,7 +5,9 @@ const userController = {
         // Get all users
         async getUsers(req, res) {
           try {
-            const dbUser = await user.find();
+            const dbUser = await user.find().populate({
+              path: "thoughts"
+            });
             res.json(dbUser);
           } catch (err) {
             res.status(500).json(err);
@@ -26,6 +28,20 @@ const userController = {
             res.status(500).json(err);
           }
         },
+
+       //update a user
+       async updateUser (req, res) {
+        try{
+          const dbUser = await user.findOneAndUpdate(
+          {_id: req.params.userId },
+          {$set: {username , email }},
+          {new: true},
+            res.json(dbUser)
+        )}catch(err){
+             res.status(500).json( {message: "could not update user"})
+        }
+       },
+
         // create a new user
         async createUser(req, res) {
           try {
