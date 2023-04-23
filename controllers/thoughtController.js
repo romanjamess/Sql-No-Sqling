@@ -75,19 +75,19 @@ const thoughtController = {
     
         }
       },
-      
-      async addReaction ( {params}, res) {
+
+      async addReaction ( {params , body}) {
         try{
             const dbThoughts = await thought.findOneAndUpdate(
                 { _id: params.thoughtId},
-                {$addToSet: {reactions: params.reactionId}},
+                {$addToSet: { reactions: body }},
                 {new: true},
             )
             res.json(dbThoughts)
         }catch(err){
-                  res.status(500).json( { message: "could not add thought!"});
+                  res.status(500).json( {message: "could not add reaction"});
         }
-      }
+      },
 
 
 };
