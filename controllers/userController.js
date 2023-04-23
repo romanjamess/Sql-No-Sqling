@@ -56,34 +56,23 @@ const userController = {
           res.status(500).json({ message: "No user with this id" });
           return;
         }
-        console.log( {friends: params.friendId}),
         res.json(dbUserData);
       })
       .catch((err) => res.json(err));
   },
 
-
-
-  // async addFriend( { params }, res) {
-  //   try {
-  //     // Find the user to add the friend to
-  //     const dbuser = await user.findOneAndUpdate(
-  //       { _id: req.params.userId },
-  //       { $addToSet: { friends: params.friendId } },
-  //       { new: true, runValidators: true }
-  //     );
-  
-  //     // If the user doesn't exist, return a 404 status with a message
-  //     if (!dbuser) {
-  //       return res.status(500).json({ message: 'User not found' });
-  //     }
-  //     res.json(dbuser);
-  //   } catch (error) {
-  //     // If an error occurs during the try block, send a 500 status with a message
-  //     res.status(500).json({ message: 'Could not add friend' });
-  //   }
-  // },
-
+  async deleteFriend ({params}, res) {
+    try {
+      const dbUser= await user.findOneAndUpdate(
+        {_id: params.userId },
+        { $pull : { friends: params.friendId }},
+        { new: true},
+       )
+       res.json(dbUser)
+    }catch(err){
+       res.status(500).json( { message: "could not delete friend"});
+    }
+  },
 
   // create a new user
   async createUser(req, res) {
@@ -94,7 +83,7 @@ const userController = {
       res.status(500).json(err);
     }
   },
-  // Delete a user and associated apps
+  // Delete a user and associated thoughts
   async deleteUser(req, res) {
     try {
       const dbUser = await user.findOneAndDelete({ _id: req.params.userId });
