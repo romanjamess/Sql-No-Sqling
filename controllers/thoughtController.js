@@ -60,11 +60,11 @@ const thoughtController = {
     },
 
     async updateThought (req, res) {
-        const { ThoughtText, username } = req.body
+        const { thoughtText, username } = req.body
         try {
           const dbThoughts = await thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $set: { ThoughtText, username } },
+            { $set: { thoughtText, username } },
             { new: true },
             );
     
