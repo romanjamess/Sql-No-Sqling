@@ -42,8 +42,8 @@ const thoughtSchema = new Schema(
             required: true
         },
         createdAt: {
-            type: Date,
-            default: Date.now
+            type: String,
+            default: Date,
         },
         reactions: [reactionSchema]
     },
@@ -58,6 +58,7 @@ const thoughtSchema = new Schema(
 thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
+
 
 const thought = model('thoughts', thoughtSchema);
 

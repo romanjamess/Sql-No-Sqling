@@ -4,9 +4,11 @@ const thoughtController = {
 
     //get all thoughts
     async getThoughts(req, res) {
-        console.log(req.body)
+        // console.log(req.body)
         try {
-            const dbThoughts = await thought.find();
+            const dbThoughts = await thought.find().populate({
+                path: "reactions"
+            });
             res.json(dbThoughts);
         } catch (err) {
             res.status(500).json(err);
