@@ -1,5 +1,4 @@
 const { thought, user } = require("../models");
-// const { db } = require("../models/thoughts");
 
 const thoughtController = {
 
