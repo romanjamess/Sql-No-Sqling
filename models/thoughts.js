@@ -19,7 +19,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: String,
             default: Date,
-            get: helpers.format_date
+            get: helpers.format_date 
         }
     },
     {

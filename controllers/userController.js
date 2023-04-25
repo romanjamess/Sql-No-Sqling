@@ -5,12 +5,8 @@ const userController = {
   // Get all users
   async getUsers(req, res) {
     try {
-      const dbUser = await user.find().populate({
-        path: "friends",
-        populate: {
-          path: "thoughts"
-        }
-      });
+      const dbUser = await user.find()
+      .populate("friends thoughts" );
       res.json(dbUser);
     } catch (err) {
       res.status(500).json(err);
