@@ -1,5 +1,5 @@
 const { Schema, model, Types } = require("mongoose");
-
+const helpers = require("../utils/helpers")
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -18,7 +18,8 @@ const reactionSchema = new Schema(
         },
         createdAt: {
             type: String,
-            default: Date
+            default: Date,
+            get: helpers.format_date
         }
     },
     {
@@ -44,6 +45,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: String,
             default: Date,
+            get :  helpers.format_date
         },
         reactions: [reactionSchema]
     },
