@@ -77,7 +77,7 @@ const thoughtController = {
         }
       },
 
-      async addReaction ( {params , body}) {
+      async addReaction ( {params , body} , res) {
         try{
             const dbThoughts = await thought.findOneAndUpdate(
                 { _id: params.thoughtId},
@@ -89,11 +89,11 @@ const thoughtController = {
                   res.status(500).json( {message: "could not add reaction"});
         }
       },
-      async deleteReaction ( {params , res}) {
+      async deleteReaction ( { params }, res) {
         try{
             const dbThoughts = await thought.findOneAndUpdate(
                 { _id: params.thoughtId},
-                {$pull : { reactions: params.reactionId}},
+                {$pull : {reactions: { reactionId: params.reactionId}}},
                 {new: true},
             )
             res.json(dbThoughts)
