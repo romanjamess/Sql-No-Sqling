@@ -22,7 +22,14 @@
   
 
   ## usage
-
+  
+ <li>clone the repo onto your machine </li>
+  <li>open a intergrated terminal inside the server.js file </li>
+  <li>run npm i to install node mudules </li>
+  <li> Now run npm run start in your integrated terminal</li>
+  <li>Now your server is listening! </li>
+  <li>watch the mock up video below for demonstration in insomnia </li>
+  
   ## MockUP
   https://drive.google.com/file/d/1yRDcNQckTYR9ppyIS8NSXvtzXrh9ZudZ/view
 
