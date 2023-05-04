@@ -77,11 +77,11 @@ const thoughtController = {
         }
       },
 
-      async addReaction ( {params , body} , res) {
+      async addReaction ( req , res) {
         try{
             const dbThoughts = await thought.findOneAndUpdate(
-                { _id: params.thoughtId},
-                {$addToSet: { reactions: body }},
+                { _id: req.params.thoughtId},
+                {$addToSet: { reactions: req.body }},
                 {new: true},
             )
             res.json(dbThoughts)
